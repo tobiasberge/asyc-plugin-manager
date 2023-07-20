@@ -5,7 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prod": "NODE_ENV=production webpack --config webpack.config.js"
+    "prod": "NODE_ENV=production webpack --config webpack.config.js",
+    "serve": "webpack serve --config webpack.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,7 @@
     "webpack": "^5.88.2"
   },
   "devDependencies": {
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
   }
 }
