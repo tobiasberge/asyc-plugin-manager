@@ -2,8 +2,6 @@ import Plugin from "src/plugin-system/plugin.class";
 
 export default class ColorBoxPlugin extends Plugin {
     init() {
-        console.log('color box plugin', this);
-
         this.applyBgColor()
     }
 

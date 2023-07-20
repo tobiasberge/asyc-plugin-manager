@@ -1,7 +1,7 @@
 import PluginManager from 'src/plugin-system/plugin.manager';
 import ColorBoxPlugin from "src/plugin/color-box.plugin";
 
-console.log('storefront main.js', PluginManager);
+console.log('storefront main.js');
 
 document.querySelector('.btn-test').addEventListener('click', async (event) => {
     event.preventDefault();

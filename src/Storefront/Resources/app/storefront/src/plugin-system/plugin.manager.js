@@ -165,12 +165,9 @@ class PluginManagerSingleton {
 
                 const plugin = this._registry.get(pluginName);
 
-                console.log('plugin', plugin.get('name'), plugin.has('async'));
-
                 // Init all sync plugins
                 if (plugin.has('registrations') && !plugin.has('async')) {
                     Iterator.iterate(plugin.get('registrations'), entry => {
-                        console.log('init entry', entry)
                         try {
                             this._initializePlugin(plugin.get('class'), entry.selector, entry.options, plugin.get('name'));
                         } catch (failure) {
@@ -182,7 +179,6 @@ class PluginManagerSingleton {
                 // Init all async plugins
                 if (plugin.has('registrations') && plugin.has('async')) {
                     Iterator.iterate(plugin.get('registrations'), (entry) => {
-                        console.log('init entry', entry)
                         try {
                             this._initializePluginAsync(plugin.get('class'), entry.selector, entry.options, plugin.get('name'));
                         } catch (failure) {
