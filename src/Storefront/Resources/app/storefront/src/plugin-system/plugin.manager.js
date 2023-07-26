@@ -157,7 +157,7 @@ class PluginManagerSingleton {
      */
     initializePlugins() {
         const initializationFailures = [];
-        Iterator.iterate(this.getPluginList(), (plugin, pluginName) => {
+        Iterator.iterate(this.getPluginList(), async (plugin, pluginName) => {
             if (pluginName) {
                 if (!this._registry.has(pluginName)) {
                     throw new Error(`The plugin "${pluginName}" is not registered.`);
@@ -178,9 +178,9 @@ class PluginManagerSingleton {
 
                 // Init all async plugins
                 if (plugin.has('registrations') && plugin.has('async')) {
-                    Iterator.iterate(plugin.get('registrations'), (entry) => {
+                    Iterator.iterate(plugin.get('registrations'), async (entry) => {
                         try {
-                            this._initializePluginAsync(plugin.get('class'), entry.selector, entry.options, plugin.get('name'));
+                            await this._initializePluginAsync(plugin.get('class'), entry.selector, entry.options, plugin.get('name'));
                         } catch (failure) {
                             initializationFailures.push(failure);
                         }
