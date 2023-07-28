@@ -155,9 +155,10 @@ class PluginManagerSingleton {
     /**
      * Initializes all plugins which are currently registered.
      */
-    initializePlugins() {
+    async initializePlugins() {
         const initializationFailures = [];
-        Iterator.iterate(this.getPluginList(), async (plugin, pluginName) => {
+
+        for (const [pluginName, plugin] of Object.entries(this.getPluginList())) {
             if (pluginName) {
                 if (!this._registry.has(pluginName)) {
                     throw new Error(`The plugin "${pluginName}" is not registered.`);
@@ -165,29 +166,21 @@ class PluginManagerSingleton {
 
                 const plugin = this._registry.get(pluginName);
 
-                // Init all sync plugins
-                if (plugin.has('registrations') && !plugin.has('async')) {
-                    Iterator.iterate(plugin.get('registrations'), entry => {
+                if (plugin.has('registrations')) {
+                    for (const [, entry] of plugin.get('registrations')) {
                         try {
-                            this._initializePlugin(plugin.get('class'), entry.selector, entry.options, plugin.get('name'));
+                            if (plugin.has('async')) {
+                                await this._initializePluginAsync(plugin.get('class'), entry.selector, entry.options, plugin.get('name'));
+                            } else {
+                                this._initializePlugin(plugin.get('class'), entry.selector, entry.options, plugin.get('name'));
+                            }
                         } catch (failure) {
                             initializationFailures.push(failure);
                         }
-                    });
-                }
-
-                // Init all async plugins
-                if (plugin.has('registrations') && plugin.has('async')) {
-                    Iterator.iterate(plugin.get('registrations'), async (entry) => {
-                        try {
-                            await this._initializePluginAsync(plugin.get('class'), entry.selector, entry.options, plugin.get('name'));
-                        } catch (failure) {
-                            initializationFailures.push(failure);
-                        }
-                    });
+                    }
                 }
             }
-        });
+        }
 
         initializationFailures.forEach((failure) => {
             console.error(failure);

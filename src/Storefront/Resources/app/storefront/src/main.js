@@ -1,5 +1,10 @@
 import PluginManager from 'src/plugin-system/plugin.manager';
 import ColorBoxPlugin from "src/plugin/color-box.plugin";
+// import AsyncFunPlugin from "src/plugin/async-fun.plugin";
+// import AddToCartPlugin from "src/plugin/add-to-cart.plugin";
+// import DescriptionLoaderPlugin from "src/plugin/description-loader.plugin";
+// import QuantitySelectPlugin from "src/plugin/quantity-select.plugin";
+// import CartPlugin from "src/plugin/cart.plugin";
 
 console.log('storefront main.js');
 
@@ -32,5 +37,12 @@ PluginManager.registerAsync('AsyncFun', 'async-fun.plugin', '[data-async-fun]');
 PluginManager.registerAsync('AddToCart', 'add-to-cart.plugin', '[data-add-to-cart]');
 PluginManager.registerAsync('DescriptionLoader', 'description-loader.plugin', '[data-description-loader]');
 PluginManager.registerAsync('QuantitySelect', 'quantity-select.plugin', '[data-quantity-select]');
+PluginManager.registerAsync('Cart', 'cart.plugin', '[data-cart]');
+
+// PluginManager.register('AsyncFun', AsyncFunPlugin, '[data-async-fun]');
+// PluginManager.register('AddToCart', AddToCartPlugin, '[data-add-to-cart]');
+// PluginManager.register('DescriptionLoader', DescriptionLoaderPlugin, '[data-description-loader]');
+// PluginManager.register('QuantitySelect', QuantitySelectPlugin, '[data-quantity-select]');
+// PluginManager.register('Cart', CartPlugin, '[data-cart]');
 
 document.addEventListener('DOMContentLoaded', () => PluginManager.initializePlugins(), false);

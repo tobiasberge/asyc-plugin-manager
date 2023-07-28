@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     target: 'web',
-    mode: 'development',
+    mode: 'production',
     devServer: {
         open: 'google-chrome',
         port: 9000,
