@@ -15,4 +15,5 @@ Thumbs.db
 /.run/
 
 /src/Storefront/Resources/app/storefront/dist
+/custom/apps/CustomApp/Resources/app/storefront/dist
 /src/Storefront/Resources/app/storefront/node_modules
