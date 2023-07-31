@@ -239,7 +239,11 @@ class PluginManagerSingleton {
         let pluginClass;
 
         if (DomAccess.isNode(selector)) {
-            // pluginClass = (await import(/* webpackChunkName: "[index].[request]" */ `../${pluginClassPath}`)).default;
+            pluginClass = (await import(
+                /* webpackChunkName: "[index].[request]" */
+                /* webpackMode: "lazy" */
+                `../${pluginClassPath}`
+                )).default;
             return PluginManagerSingleton._initializePluginOnElement(selector, pluginClass, options, pluginName);
         }
 
@@ -251,7 +255,7 @@ class PluginManagerSingleton {
             pluginClass = (await import(
                 /* webpackChunkName: "[index].[request]" */
                 /* webpackMode: "lazy" */
-                `../plugin/${pluginClassPath}`
+                `../${pluginClassPath}`
             )).default;
         }
 

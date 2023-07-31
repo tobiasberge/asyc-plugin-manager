@@ -28,11 +28,11 @@ if (testButton) {
 }
 
 PluginManager.register('ColorBoxPlugin', ColorBoxPlugin, '[data-color-box]');
-PluginManager.registerAsync('AsyncFun', 'async-fun.plugin', '[data-async-fun]');
-PluginManager.registerAsync('AddToCart', 'add-to-cart.plugin', '[data-add-to-cart]');
-PluginManager.registerAsync('DescriptionLoader', 'description-loader.plugin', '[data-description-loader]');
-PluginManager.registerAsync('QuantitySelect', 'quantity-select.plugin', '[data-quantity-select]');
-PluginManager.registerAsync('Cart', 'cart.plugin', '[data-cart]');
-PluginManager.registerAsync('SearchSuggest', 'search-suggest.plugin', '[data-search-suggest]');
+PluginManager.registerAsync('AsyncFun', 'plugin/async-fun.plugin', '[data-async-fun]');
+PluginManager.registerAsync('AddToCart', 'plugin/add-to-cart.plugin', '[data-add-to-cart]');
+PluginManager.registerAsync('DescriptionLoader', 'plugin/description-loader.plugin', '[data-description-loader]');
+PluginManager.registerAsync('QuantitySelect', 'plugin/quantity-select.plugin', '[data-quantity-select]');
+PluginManager.registerAsync('Cart', 'plugin/cart.plugin', '[data-cart]');
+PluginManager.registerAsync('SearchSuggest', 'plugin/search-suggest.plugin', '[data-search-suggest]');
 
 document.addEventListener('DOMContentLoaded', () => PluginManager.initializePlugins(), false);
