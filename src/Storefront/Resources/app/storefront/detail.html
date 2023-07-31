@@ -3,18 +3,25 @@
 <head>
     <meta charset="utf-8">
     <title>Async plugin manager</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" defer></script>
     <script src="storefront.js" defer></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .search-suggest-popover {
+            --bs-popover-max-width: 500px;
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+        }
+    </style>
 </head>
 <body>
     <div class="py-4 border-bottom">
         <div class="container d-flex justify-content-between align-items-center">
-            <div class="logo">Async Shop</div>
-            <input class="form-control w-25" type="search" placeholder="Search...">
-            <button class="btn btn-outline-secondary position-relative shopping-cart" data-cart="true">
+            <div class="logo fs-5"><i class="bi bi-lightning-charge-fill text-primary"></i> <i><b class="text-secondary">Async Shop</b></i></div>
+            <input class="form-control w-25" type="search" placeholder="Search..." data-search-suggest="true" data-bs-content="...">
+            <button class="btn btn-outline-primary position-relative shopping-cart" style="width: 150px" data-cart="true">
                 <i class="bi bi-cart4"></i> <span class="shopping-cart-value">$ 0.00*</span>
             </button>
         </div>
@@ -30,14 +37,16 @@
             </li>
         </ul>
 
-        <h1 class="mb-4">Product detail page</h1>
+        <h1 class="product-name mb-4">Design Sofa Klippan</h1>
 
-        <div class="row mb-3">
+        <div class="row mb-5">
             <div class="col-6">
                 <img alt="Chair" class="img-fluid rounded" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80">
             </div>
             <div class="col-6">
-                <h2 class="mb-3 product-price">$ 270.98*</h2>
+                <h2 class="mb-1 product-price">$ 2700.98*</h2>
+                <div class="text-muted mb-1">15 in stock</div>
+                <span class="badge text-bg-success mb-3">Free shipping</span>
 
                 <div class="row">
                     <div class="col-4">
@@ -47,7 +56,7 @@
                             <button class="btn btn-outline-secondary plus" type="button" id="button-addon2">+</button>
                         </div>
                     </div>
-                    <div class="col-7">
+                    <div class="col-8">
                         <form action="#">
                             <div class="d-grid">
                                 <button data-add-to-cart="true" class="btn btn-primary mb-3">Add to cart</button>
@@ -58,14 +67,13 @@
             </div>
         </div>
 
-        <h2>Description</h2>
+        <h2 class="product-description mb-3">Description</h2>
 
         <p class="description placeholder-glow" data-description-loader="true">
             <span class="placeholder col-6"></span>
             <span class="placeholder w-75"></span>
             <span class="placeholder" style="width: 25%;"></span>
         </p>
-
     </div>
 </body>
 </html>

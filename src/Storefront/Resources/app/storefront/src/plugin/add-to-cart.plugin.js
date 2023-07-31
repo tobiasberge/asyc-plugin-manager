@@ -1,4 +1,5 @@
 import Plugin from "src/plugin-system/plugin.class";
+import throttle from "src/helper/throttle.helper";
 
 export default class AddToCartPlugin extends Plugin {
     init() {
@@ -30,39 +31,20 @@ export default class AddToCartPlugin extends Plugin {
         this.el.innerHTML = 'Add to cart';
     }
 
-    timeout(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
     async onClickAddToCart(event) {
         event.preventDefault();
 
         this.addLoadingIndicator();
 
-        await this.timeout(2000);
+        await throttle(2000);
 
         this.addSuccessMessage();
-        this.updateCartValue();
 
         this.$emitter.publish('AddToCartPlugin/afterAdd', this.getCurrentProductPrice());
 
-        await this.timeout(1000);
+        await throttle(1000);
 
         this.removeLoadingIndicator();
-    }
-
-    updateCartValue() {
-        const cartElement = document.querySelector('.shopping-cart');
-        const cartValueElement = cartElement.querySelector('.shopping-cart-value');
-
-        const badgeTemplate = `
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                1
-            </span>
-        `;
-
-        cartValueElement.innerText = this.getCurrentProductPrice();
-        cartElement.insertAdjacentHTML('afterbegin', badgeTemplate);
     }
 
     getCurrentProductPrice() {
