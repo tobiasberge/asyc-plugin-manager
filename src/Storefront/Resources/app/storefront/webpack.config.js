@@ -6,11 +6,11 @@ const coreConfig = {
     devServer: {
         open: 'google-chrome',
         port: 9000,
-        contentBase: [
+        static: [
             path.join(__dirname),
             path.join(__dirname, 'dist')
         ],
-        watchContentBase: true,
+        hot: true,
         liveReload: true,
     },
     entry: './src/main.js',
@@ -35,11 +35,11 @@ appConfig = {
     devServer: {
         open: 'google-chrome',
         port: 9009,
-        contentBase: [
+        static: [
             path.join(__dirname),
             path.join(__dirname, 'dist')
         ],
-        watchContentBase: true,
+        hot: true,
         liveReload: true,
     },
     entry: path.resolve('./../../../../..', 'custom/apps/CustomApp/Resources/app/storefront/src/main.js'),
