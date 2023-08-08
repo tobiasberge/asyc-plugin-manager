@@ -26,6 +26,13 @@ class PluginManagerSingleton {
             throw new Error(`Plugin "${pluginName}" is already registered.`);
         }
 
+        // If we cannot find the prototype of the class, we assume it will be loaded async
+        if (!Object.getOwnPropertyDescriptor(pluginClass, 'prototype')) {
+            console.log('async -->', pluginName);
+            return this._registry.set(pluginName, pluginClass, selector, options, true);
+        }
+
+        console.log('sync -->', pluginName);
         return this._registry.set(pluginName, pluginClass, selector, options);
     }
 
@@ -238,6 +245,8 @@ class PluginManagerSingleton {
     async _initializePluginAsync(pluginClassPath, selector, options, pluginName = false) {
         let pluginClass;
 
+        // import('./../../../../../../custom/apps/CustomApp/Resources/app/storefront/src/')
+
         if (DomAccess.isNode(selector)) {
             pluginClass = (await import(
                 /* webpackChunkName: "[index].[request]" */
@@ -252,11 +261,10 @@ class PluginManagerSingleton {
         }
 
         if (selector.length > 0) {
-            pluginClass = (await import(
-                /* webpackChunkName: "[index].[request]" */
-                /* webpackMode: "lazy" */
-                `../${pluginClassPath}`
-            )).default;
+            // TODO: Better paths
+            // pluginClass = (await pluginClassPath()).default;
+
+            pluginClass = (await pluginClassPath()).default;
         }
 
         return Iterator.iterate(selector, el => {
@@ -381,7 +389,7 @@ export default class PluginManager {
      * Registers a plugin to the plugin manager.
      *
      * @param {string} pluginName
-     * @param {Plugin} pluginClass
+     * @param {function(): Promise<{readonly default?: *}>} pluginClass
      * @param {string|NodeList|HTMLElement} selector
      * @param {Object} options
      *
@@ -389,10 +397,6 @@ export default class PluginManager {
      */
     static register(pluginName, pluginClass, selector = document, options = {}) {
         return PluginManagerInstance.register(pluginName, pluginClass, selector, options);
-    }
-
-    static registerAsync(pluginName, pluginClassPath, selector = document, options = {}) {
-        return PluginManagerInstance.registerAsync(pluginName, pluginClassPath, selector, options);
     }
 
     /**

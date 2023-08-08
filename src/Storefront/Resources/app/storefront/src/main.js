@@ -27,12 +27,12 @@ if (testButton) {
     });
 }
 
-PluginManager.register('ColorBoxPlugin', ColorBoxPlugin, '[data-color-box]');
-PluginManager.registerAsync('AsyncFun', 'plugin/async-fun.plugin', '[data-async-fun]');
-PluginManager.registerAsync('AddToCart', 'plugin/add-to-cart.plugin', '[data-add-to-cart]');
-PluginManager.registerAsync('DescriptionLoader', 'plugin/description-loader.plugin', '[data-description-loader]');
-PluginManager.registerAsync('QuantitySelect', 'plugin/quantity-select.plugin', '[data-quantity-select]');
-PluginManager.registerAsync('Cart', 'plugin/cart.plugin', '[data-cart]');
-PluginManager.registerAsync('SearchSuggest', 'plugin/search-suggest.plugin', '[data-search-suggest]');
+PluginManager.register('ColorBox', ColorBoxPlugin, '[data-color-box]');
+PluginManager.register('AsyncFun', () => import('./plugin/async-fun.plugin'), '[data-async-fun]');
+PluginManager.register('AddToCart', () => import('./plugin/add-to-cart.plugin'), '[data-add-to-cart]');
+PluginManager.register('DescriptionLoader', () => import('./plugin/description-loader.plugin'), '[data-description-loader]');
+PluginManager.register('QuantitySelect', () => import('./plugin/quantity-select.plugin'), '[data-quantity-select]');
+PluginManager.register('Cart', () => import('./plugin/cart.plugin'), '[data-cart]');
+PluginManager.register('SearchSuggest', () => import('./plugin/search-suggest.plugin'), '[data-search-suggest]');
 
 document.addEventListener('DOMContentLoaded', () => PluginManager.initializePlugins(), false);
