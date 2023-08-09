@@ -34,5 +34,6 @@ PluginManager.register('DescriptionLoader', () => import('./plugin/description-l
 PluginManager.register('QuantitySelect', () => import('./plugin/quantity-select.plugin'), '[data-quantity-select]');
 PluginManager.register('Cart', () => import('./plugin/cart.plugin'), '[data-cart]');
 PluginManager.register('SearchSuggest', () => import('./plugin/search-suggest.plugin'), '[data-search-suggest]');
+PluginManager.register('Slider', () => import('./plugin/slider.plugin'), '[data-slider]');
 
 document.addEventListener('DOMContentLoaded', () => PluginManager.initializePlugins(), false);

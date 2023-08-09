@@ -12,6 +12,9 @@ const coreConfig = {
         hot: true,
         liveReload: true,
     },
+    performance: {
+        hints: false,
+    },
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -32,6 +35,9 @@ const appConfig = {
     target: 'web',
     mode: 'production',
     entry: path.resolve('./../../../../..', 'custom/apps/CustomApp/Resources/app/storefront/src/main.js'),
+    performance: {
+        hints: false,
+    },
     output: {
         path: path.resolve('./../../../../..', 'custom/apps/CustomApp/Resources/app/storefront/dist'),
         filename: 'custom-app.js',
@@ -40,6 +46,7 @@ const appConfig = {
     resolve: {
         modules: [
             path.resolve(__dirname, 'node_modules'),
+            path.resolve('./../../../../..', 'custom/apps/CustomApp/Resources/app/storefront/node_modules'),
         ],
         alias: {
             src: path.resolve(__dirname, 'src'),
@@ -51,6 +58,9 @@ const threeJsAppConfig = {
     target: 'web',
     mode: 'production',
     entry: path.resolve('./../../../../..', 'custom/apps/ThreeJsApp/Resources/app/storefront/src/main.js'),
+    performance: {
+        hints: false,
+    },
     output: {
         path: path.resolve('./../../../../..', 'custom/apps/ThreeJsApp/Resources/app/storefront/dist'),
         filename: 'three-js-app.js',
@@ -59,6 +69,7 @@ const threeJsAppConfig = {
     resolve: {
         modules: [
             path.resolve(__dirname, 'node_modules'),
+            path.resolve('./../../../../..', 'custom/apps/ThreeJsApp/Resources/app/storefront/node_modules'),
         ],
         alias: {
             src: path.resolve(__dirname, 'src'),
