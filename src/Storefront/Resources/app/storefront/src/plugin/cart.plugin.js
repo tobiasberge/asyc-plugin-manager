@@ -88,7 +88,7 @@ export default class CartPlugin extends Plugin {
         const productName = document.querySelector('.product-name')?.innerText;
         const pricePrice = document.querySelector('.product-price')?.innerText;
         const priceSmgSrc = document.querySelector('img')?.getAttribute('src');
-        const offCanvasBody = document.querySelector('.offcanvas-body')
+        const offCanvasBody = document.querySelector('.offcanvas-body');
 
         if (!productName || !pricePrice || !priceSmgSrc) {
             offCanvasBody.innerHTML = `

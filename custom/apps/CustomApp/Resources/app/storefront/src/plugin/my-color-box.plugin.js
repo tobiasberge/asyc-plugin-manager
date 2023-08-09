@@ -1,13 +1,8 @@
-console.log('my-color-box.plugin', window.PluginManager.getPlugin('ColorBox').get('class'));
-
-const ColorBoxPlugin = (await import('src/plugin/color-box.plugin')).default;
-
-console.log('ColorBoxPlugin', ColorBoxPlugin);
+const ColorBoxPlugin = (await import(/* webpackChunkName: "color-box.plugin" */ 'src/plugin/color-box.plugin')).default;
 
 export default class MyColorBoxPlugin extends ColorBoxPlugin {
     init() {
         super.init();
-        console.log('We have overwritten the ColorBox plugin!');
 
         this.addAdditionalBox();
     }

@@ -5,8 +5,9 @@
     <title>Async plugin manager</title>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" defer></script>
-    <script src="dist/storefront.js" defer></script>
-    <script src="../../../../../custom/apps/CustomApp/Resources/app/storefront/dist/custom-app.js" defer></script>
+    <script src="storefront.js" defer></script>
+    <script src="custom-app.js" defer></script>
+    <script src="three-js-app.js" defer></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -47,10 +48,12 @@
         <h1 class="product-name mb-4">Design Sofa Klippan</h1>
 
         <div class="row mb-5">
-            <div class="col-6">
-                <img alt="Chair" class="img-fluid rounded" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80">
+            <div class="col-7">
+                <div class="img-wrapper" data-three-viewer="true">
+                    <img alt="Chair" class="img-fluid rounded" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80">
+                </div>
             </div>
-            <div class="col-6">
+            <div class="col-5">
                 <h2 class="mb-1 product-price">$ 2700.98*</h2>
                 <div class="text-muted mb-1">15 in stock</div>
                 <span class="badge text-bg-success mb-3">Free shipping</span>

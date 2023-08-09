@@ -28,11 +28,9 @@ class PluginManagerSingleton {
 
         // If we cannot find the prototype of the class, we assume it will be loaded async
         if (!Object.getOwnPropertyDescriptor(pluginClass, 'prototype')) {
-            console.log('async -->', pluginName);
             return this._registry.set(pluginName, pluginClass, selector, options, true);
         }
 
-        console.log('sync -->', pluginName);
         return this._registry.set(pluginName, pluginClass, selector, options);
     }
 
