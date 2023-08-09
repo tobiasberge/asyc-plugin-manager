@@ -1,7 +1,7 @@
 import PluginManager from 'src/plugin-system/plugin.manager';
 import ColorBoxPlugin from "src/plugin/color-box.plugin";
 
-console.log('storefront - main.js');
+console.log('Storefront - main.js');
 
 const testButton = document.querySelector('.btn-test');
 

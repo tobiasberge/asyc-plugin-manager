@@ -8,8 +8,6 @@ const coreConfig = {
         port: 9000,
         static: {
             directory: path.join(__dirname),
-            // path.join(__dirname),
-            // path.join(__dirname, 'dist')
         },
         hot: true,
         liveReload: true,
@@ -33,16 +31,6 @@ const coreConfig = {
 const appConfig = {
     target: 'web',
     mode: 'production',
-    // devServer: {
-    //     open: 'google-chrome',
-    //     port: 9009,
-    //     static: [
-    //         path.join(__dirname),
-    //         path.join(__dirname, 'dist')
-    //     ],
-    //     hot: true,
-    //     liveReload: true,
-    // },
     entry: path.resolve('./../../../../..', 'custom/apps/CustomApp/Resources/app/storefront/src/main.js'),
     output: {
         path: path.resolve('./../../../../..', 'custom/apps/CustomApp/Resources/app/storefront/dist'),
@@ -62,16 +50,6 @@ const appConfig = {
 const threeJsAppConfig = {
     target: 'web',
     mode: 'production',
-    // devServer: {
-    //     open: 'google-chrome',
-    //     port: 9008,
-    //     static: [
-    //         path.join(__dirname),
-    //         path.join(__dirname, 'dist')
-    //     ],
-    //     hot: true,
-    //     liveReload: true,
-    // },
     entry: path.resolve('./../../../../..', 'custom/apps/ThreeJsApp/Resources/app/storefront/src/main.js'),
     output: {
         path: path.resolve('./../../../../..', 'custom/apps/ThreeJsApp/Resources/app/storefront/dist'),
