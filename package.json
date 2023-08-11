@@ -7,6 +7,9 @@
     "postinstall": "cd src/Storefront/Resources/app/storefront && npm install && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "stackblitz": {
+    "startCommand": "npm run postinstall"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
