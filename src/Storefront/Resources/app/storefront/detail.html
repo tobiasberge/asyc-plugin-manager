@@ -28,16 +28,54 @@
             position: relative;
         }
 
-        [data-controls="prev"],
-        [data-controls="next"] {
-            width: 50px;
-            height: 50px;
-            color: #fff;
-            font-size: 20px;
-            background: rgba(0, 0, 0, .5);
-            border: none;
+        .tns-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 5;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 10px;
+        }
+
+        .tns-nav > button {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .3);
+            border: 1px solid rgba(255, 255, 255, .5);
             outline: none;
             cursor: pointer;
+        }
+
+        .tns-nav > button.tns-nav-active {
+            background: var(--bs-primary);
+            border: 1px solid var(--bs-primary);
+        }
+
+        [data-controls="prev"],
+        [data-controls="next"] {
+            width: 30px;
+            height: 50px;
+            color: rgba(0, 0, 0, .5);
+            font-size: 20px;
+            background: rgba(255, 255, 255, .3);
+            border: 1px solid rgba(255, 255, 255, .5);
+            outline: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        [data-controls="prev"]:hover,
+        [data-controls="next"]:hover {
+            border-color: var(--bs-primary);
+            color: var(--bs-primary);
         }
 
         [data-controls="prev"] {
@@ -46,6 +84,7 @@
             left: 0;
             transform: translateY(-50%);
             z-index: 1;
+            border-left: 0;
         }
 
         [data-controls="next"] {
@@ -54,6 +93,7 @@
             right: 0;
             transform: translateY(-50%);
             z-index: 1;
+            border-right: 0;
         }
     </style>
 </head>

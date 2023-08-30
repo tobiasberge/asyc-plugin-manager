@@ -79,4 +79,4 @@ const threeJsAppConfig = {
 
 module.exports = [coreConfig, appConfig, threeJsAppConfig];
 
-module.exports.parrallelism = 3;
+// module.exports.parrallelism = 3;
