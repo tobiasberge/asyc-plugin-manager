@@ -34,14 +34,6 @@ class PluginManagerSingleton {
         return this._registry.set(pluginName, pluginClass, selector, options);
     }
 
-    registerAsync(pluginName, pluginClassPath, selector = document, options = {}) {
-        if (this._registry.has(pluginName, selector)) {
-            throw new Error(`Plugin "${pluginName}" is already registered.`);
-        }
-
-        return this._registry.set(pluginName, pluginClassPath, selector, options, true);
-    }
-
     /**
      * Removes a plugin from the plugin manager.
      *

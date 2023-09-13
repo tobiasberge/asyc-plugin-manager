@@ -16,7 +16,7 @@ if (testButton) {
                 <ul>
                     <li>The selector <code>[data-async-fun]</code> was now added by JavaScript.</li>
                     <li><code>PluginManager.initializePlugins()</code> was executed after the HTML was injected.</li>
-                    <li>The plugin <code>AsyncFun</code> was registered with <code>registerAsync</code>.</li>
+                    <li>The plugin <code>AsyncFun</code> was registered with an async import<code>() => import('./plugin/async-fun.plugin')</code>.</li>
                     <li>Because selector <code>[data-async-fun]</code> was found in the DOM the JS-plugin is fetched async during the initialization.</li>
                 </ul>
             </div>
